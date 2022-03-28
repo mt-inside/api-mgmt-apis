@@ -1,0 +1,10 @@
+# .proto imports resolved from directory of this file (ie a single -I argument to protoc)
+# This marks the root of a buf "module"
+# - Combine multiple modules with a buf.work.yaml
+version: v1
+lint:
+  use:
+    - DEFAULT
+breaking:
+  use:
+    - FILE
