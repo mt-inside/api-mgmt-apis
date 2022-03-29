@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greeter.api.v1;
+option go_package = "github.com/mt-inside/greeter-sdk-go/api/v1;greeterapiv1";
+
+import "google/type/datetime.proto";
+import "validate/validate.proto";
+
+message GreetRequest {
+  string name = 1 [(validate.rules).string = {min_len: 4}];
+  google.type.DateTime birthday = 2;
+}
+message GreetResponse {
+  string message = 1;
+}
+
+service GreeterService {
+  rpc Greet (GreetRequest) returns (GreetResponse) { };
+}

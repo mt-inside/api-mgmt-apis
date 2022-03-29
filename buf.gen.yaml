@@ -1,0 +1,17 @@
+version: v1
+# We don't use managed mode because we do a lot of messing around with filesystem locations and replace directives, pretending we've got a full github org
+plugins:
+  - name: go
+    out: /tmp/gen/go
+    opt:
+      - paths=source_relative
+  - name: go-grpc
+    out: /tmp/gen/go
+    opt:
+      - paths=source_relative
+      - require_unimplemented_servers=false
+  - name: validate
+    out: /tmp/gen/go
+    opt:
+      - lang=go
+      - paths=source_relative

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greeter.api.v1;
+option go_package = "github.com/mt-inside/greeter-sdk-go/api/v1;greeterapiv1";
+
+message GetGreetingRequest { }
+message GetGreetingResponse {
+  string greeting = 1;
+}
+
+message SetGreetingRequest {
+  string greeting = 1;
+}
+message SetGreetingResponse { }
+
+service ConfigService {
+  rpc GetGreeting (GetGreetingRequest) returns (GetGreetingResponse) { };
+  rpc SetGreeting (SetGreetingRequest) returns (SetGreetingResponse) { };
+}

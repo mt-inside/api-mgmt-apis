@@ -2,6 +2,10 @@
 # This marks the root of a buf "module"
 # - Combine multiple modules with a buf.work.yaml
 version: v1
+name: buf.build/mt-inside/greeter
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/envoyproxy/protoc-gen-validate
 lint:
   use:
     - DEFAULT
