@@ -1,13 +1,16 @@
 syntax = "proto3";
 
 package greeter.api.v1;
-option go_package = "github.com/mt-inside/greeter-sdk-go/api/v1;greeterapiv1";
 
 import "google/type/datetime.proto";
 import "validate/validate.proto";
 
+option go_package = "github.com/mt-inside/greeter-sdk-go/api/v1;greeterapiv1";
+
 message GreetRequest {
-  string name = 1 [(validate.rules).string = {min_len: 4}];
+  string name = 1 [(validate.rules).string = {
+    min_len: 4
+  }];
   google.type.DateTime birthday = 2;
 }
 message GreetResponse {
@@ -15,5 +18,5 @@ message GreetResponse {
 }
 
 service GreeterService {
-  rpc Greet (GreetRequest) returns (GreetResponse) { };
+  rpc Greet(GreetRequest) returns (GreetResponse) {}
 }
